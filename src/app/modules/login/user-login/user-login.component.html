@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="card">
+    <h1>user login</h1>
+
+     <form [formGroup]="LoginForm" (ngSubmit)="formSubmitted()">
+
+       <div class="fieldcontrol">
+        <label for="username">username</label>
+        <input autocomplete="false" placeholder="Enter username" formControlName="username" type="text" class="form-control" #username >
+        <span *ngIf="LoginForm.get('username')?.invalid && LoginForm.get('username')?.touched">please enter valid username</span>
+       </div>
+
+      <div class="field-control">
+        <label for="name">name</label>
+        <input autocomplete="false" placeholder="Enter name" formControlName="name" type="text" #name class="form-control" >
+        <span *ngIf="LoginForm.get('name')?.invalid && LoginForm.get('name')?.touched">please enter valid name</span>
+      </div>
+
+      <div class="field-control">
+         <label for="email">email</label>
+        <input autocomplete="false" placeholder="Ex.demo@demo.com" formControlName="email" type="email" #email class="form-control" >
+        <span *ngIf="LoginForm.get('email')?.invalid && LoginForm.get('email')?.touched" >please enter valid email</span>
+      </div>
+
+      <div class="field-control">
+        <label for="password">password</label>
+        <input autocomplete="false" placeholder="Enter password" formControlName="password" type="password" #password class="form-control"  >
+        <span *ngIf="LoginForm.get('password')?.invalid && LoginForm.get('password')?.touched">please enter password with minlength 5</span>
+      </div>
+
+
+      <div class="field-control">
+        <button  class="btn btn-primary" [disabled]="!LoginForm.valid">submit</button>
+      </div>
+    </form>
+  </div>
+</div>
